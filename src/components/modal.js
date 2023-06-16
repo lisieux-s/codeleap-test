@@ -3,7 +3,9 @@ export default function Modal({
     children
 }) {
     return (
-        <div className="modal">
+        <div
+            className={enableOverlay ? 'modal' : 'modal sign-up'}
+        >
             {
                 enableOverlay ?
                     <div className="overlay" />

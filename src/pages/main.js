@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import useUser from "../hooks/useUser";
 import { Modal, Post, PostForm } from "../components"
 import * as api from '../actions/api';
 
 export default function Main() {
     const navigate = useNavigate();
+
+    const { removeUsername } = useUser();
 
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
@@ -60,6 +63,11 @@ export default function Main() {
         }
     }
 
+    function handleLogout() {
+        removeUsername();
+        navigate('/sign-up')
+    }
+
     function renderDeletePostModal() {
         return (
             <Modal enableOverlay>
@@ -101,6 +109,14 @@ export default function Main() {
                     <h2>
                         CodeLeap Network
                     </h2>
+                    <button
+                    type='button'
+                    onClick={() => {
+                        handleLogout();
+                    }}
+                    >
+                        Logout
+                    </button>
                 </header>
 
                 <div>

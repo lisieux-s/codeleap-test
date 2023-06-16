@@ -35,32 +35,32 @@ export default function SignUp() {
     }
 
     return (
-        <div>
-            <Modal enableOverlay={false}>
-                <form onSubmit={(e) => handleSubmit(e)}>
-                    <h2>
-                        Welcome to CodeLeap network!
-                    </h2>
-                    <p>
-                        Please enter your username
-                    </p>
-                    <input
-                        type='text'
-                        name='username'
-                        placeholder="John Doe"
-                        value={formData.username}
-                        onChange={(e) => {
-                            handleChange(e);
-                        }}
-                    />
-                    <button
-                        type='submit'
-                        disabled={isDisabled}
-                    >
-                        Enter
-                    </button>
-                </form>
-            </Modal>
-        </div>
+
+        <Modal enableOverlay={false}>
+            <form onSubmit={(e) => handleSubmit(e)}>
+                <h2>
+                    Welcome to CodeLeap network!
+                </h2>
+                <p>
+                    Please enter your username
+                </p>
+                <input
+                    type='text'
+                    name='username'
+                    placeholder="John Doe"
+                    value={formData.username}
+                    onChange={(e) => {
+                        handleChange(e);
+                    }}
+                />
+                <button
+                    type='submit'
+                    disabled={isDisabled}
+                >
+                    Enter
+                </button>
+            </form>
+        </Modal>
+
     )
 }
