@@ -42,6 +42,7 @@ export default function CreatePost() {
                 content: '',
             })
             setIsFormDisabled(false);
+            window.location.reload();
 
         } catch (error) {
             console.log(error)

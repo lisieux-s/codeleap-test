@@ -12,8 +12,8 @@ export async function getPosts() {
     return await baseAPI.get('');
 }
 
-export async function getPostById(id) {
-    return await baseAPI.get(`/${id}/`)
+export async function EditPost(id) {
+    return await baseAPI.put(`/${id}/`)
 }
 
 export async function deletePost(id) {
