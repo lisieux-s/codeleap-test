@@ -1,9 +1,9 @@
 import Modal from "./modal";
 import Post from "./post";
-import CreatePost from "./create-post";
+import PostForm from "./postForm";
 
 export {
     Modal,
     Post,
-    CreatePost
+    PostForm,
 }

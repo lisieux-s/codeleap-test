@@ -4,14 +4,14 @@ export default function Modal({
 }) {
     return (
         <div className="modal">
-            <div className="content">
-                { children }
-            </div>
             {
                 enableOverlay ?
                     <div className="overlay" />
                     : ''
             }
+            <div className="content">
+                {children}
+            </div>
         </div>
     )
 }
