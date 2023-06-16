@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 import Modal from "../components/modal"
+import useUser from "../hooks/useUser";
 
 export default function SignUp() {
+    const navigate = useNavigate();
+
+    const { storeUsername, removeUsername } = useUser();
+
     const [formData, setFormData] = useState({
         username: ''
     })
@@ -10,26 +16,28 @@ export default function SignUp() {
 
     useEffect(() => {
         if (formData.username.length < 1) {
-            setIsDisabled(true)
+            setIsDisabled(true);
         } else {
             if (isDisabled) setIsDisabled(false);
         }
     }, [formData, isDisabled])
 
-    function handleChange({target}) {
+    function handleChange({ target }) {
         setFormData({
             ...formData, [target.name]: target.value
-        })
+        });
     }
 
     function handleSubmit(e) {
         e.preventDefault();
+        storeUsername(formData.username);
+        navigate('/');
     }
 
     return (
         <div>
             <Modal enableOverlay={false}>
-                <form onSubmit={(e) => handleSubmit()}>
+                <form onSubmit={(e) => handleSubmit(e)}>
                     <h2>
                         Welcome to CodeLeap network!
                     </h2>

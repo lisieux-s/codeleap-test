@@ -7,13 +7,92 @@ $light-gray: #DDDDDD;
   box-sizing: border-box;
 }
 
+.justify-content-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.color-dark-gray {
+  color: $dark-gray;
+}
+
 body {
-  background: #dddddd;
+  background: $light-gray;
   font-family: "Roboto", sans-serif;
 }
 
+main {
+  background: #FFFFFF;
+  width: 800px;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
+    width: 100%;
+
+    > * {
+      border: 1px solid #999999;
+      border-radius: 16px;
+    }
+  }
+
+  form {
+    padding: 24px;
+    width: 100%;
+
+    input {
+      width: 100%;
+    }
+  }
+
+  .post {
+    border: none;
+
+    > :first-child {
+      border: 1px solid #999999;
+      border-bottom: none;
+      border-radius: 16px 16px 0px 0px;
+      height: 70px;
+    }
+
+    > div {
+      padding: 24px;
+    }
+
+    > :last-child {
+      border: 1px solid #999999;
+      border-radius: 0px 0px 16px 16px;
+      border-top: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+}
+
+.title {
+  align-items: center;
+  background: #7695EC;
+  color: #fff;
+  display: flex;
+}
+
+header {
+  height: 80px;
+  padding-left: 37px;
+  padding-right: 37px;
+}
+
 .App {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
   text-align: center;
+  width: 100%;
+
 }
 
 h2 {
@@ -32,12 +111,25 @@ p {
   line-height: 19px;
   text-align: left;
 }
-
-input {
+textarea, input {
   border: 1px solid #777777;
   border-radius: 8px;
-  height: 32px;
+  color: #CCCCCC;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
   padding: 8px;
+}
+
+textarea {
+  height: 74px;
+  max-width: 704px;
+  min-height: 74px;
+  min-width: 704px;
+}
+
+input {
+  height: 32px;
   width: 452px;
 }
 
@@ -47,13 +139,17 @@ button {
   border: none;
   border-radius: 8px;
   color: #fff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 700;
   height: 32px;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   width: 111px;
 
-  &:disabled {
-    background: $dark-gray;
-  }
+}
+
+*:disabled {
+  background: $dark-gray;
 }
 
 .modal {
@@ -63,7 +159,6 @@ button {
   justify-content: center;
   position: fixed;
   top: 0;
-  width: 100%;
 
   .overlay {
     background: rgba(119, 119, 119, 0.8);
