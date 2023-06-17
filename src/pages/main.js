@@ -27,10 +27,7 @@ export default function Main() {
 
     setInterval(() => {
         loadPosts();
-    }, 10000);
-
-    // useEffect(() => {
-    // }, [isEditModalOpen])
+    }, 5000);
 
     function checkForUser() {
         if (!localStorage.getItem('code-leap-network-username')) navigate('/sign-up');
@@ -113,7 +110,7 @@ export default function Main() {
     function renderBlockModal(selectedUser) {
         return (
             <Modal enableOverlay>
-                <div className="confirmation">
+                <div className="confirm-block">
                     <p>
                         {`Would you like to block ${selectedUser}? You won't see their posts anymore.`}
 
@@ -124,11 +121,11 @@ export default function Main() {
                     <div className="buttons">
                         <button className="cancel" onClick={() => setIsBlockModalOpen(false)}>Cancel</button>
                         <button
-                        className="red"
-                        onClick={() => handleBlock()}
+                            className="red"
+                            onClick={() => handleBlock()}
                         >
                             Confirm
-                            </button>
+                        </button>
                     </div>
                 </div>
             </Modal>
