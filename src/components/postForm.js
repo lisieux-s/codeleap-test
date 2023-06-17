@@ -86,7 +86,7 @@ export default function PostForm({
         <form onSubmit={(e) => handleSubmit(e)}>
             <h2>
                 {
-                    type === 'create' ? `What's on your mind?`
+                    type === 'create' ? `What's on your mind, ${username}?`
                         : 'Edit Item'
                 }
             </h2>
