@@ -69,12 +69,13 @@ export default function PostForm({
                         title: formData.title,
                         content: formData.content
                     })
-                    console.log(result)
+                console.log(result)
+
+                setIsEditModalOpen(false);
             }
+
             clearForm();
             setIsFormDisabled(false);
-            setIsEditModalOpen(false);
-            window.location.reload();
 
         } catch (error) {
             console.log(error)
@@ -132,20 +133,20 @@ export default function PostForm({
                 }
                 {
                     type === 'create' ?
-                    <button
-                    type="submit"
-                    disabled={isButtonDisabled}
-                >
-                    Create
-                </button>
-                :
-                <button
-                    type="submit"
-                    disabled={isButtonDisabled}
-                    className="save"
-                >
-                    Save
-                </button>
+                        <button
+                            type="submit"
+                            disabled={isButtonDisabled}
+                        >
+                            Create
+                        </button>
+                        :
+                        <button
+                            type="submit"
+                            disabled={isButtonDisabled}
+                            className="green"
+                        >
+                            Save
+                        </button>
                 }
             </div>
         </form>

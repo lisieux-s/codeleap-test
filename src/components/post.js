@@ -14,6 +14,8 @@ export default function Post({
     setIsEditModalOpen,
     setSelectedPost,
     setIsDeleteModalOpen,
+    setIsBlockModalOpen,
+    blockedUsers,
 }) {
     const { username } = useUser();
 
@@ -49,6 +51,18 @@ export default function Post({
         setIsDeleteModalOpen(true);
     }
 
+    function handleBlock() {
+        setSelectedPost(post);
+        setIsBlockModalOpen(true);
+    }
+
+    function isBlocked() {
+        if (blockedUsers.includes(post.username)) return true;
+        return false;
+    }
+
+    if (isBlocked()) return '';
+
     return (
         <div className="post">
             <div className="title">
@@ -72,9 +86,20 @@ export default function Post({
                 <div
                     className="justify-content-space-between color-dark-gray"
                 >
-                    <p>
-                        @{post.username}
-                    </p>
+                    <div className="username">
+                        <p>
+                            @{post.username}
+                        </p>
+                        {
+                            post.username === username ?
+                                '' : <button
+                                    onClick={() => handleBlock()}
+                                    className=""
+                                >
+                                    Block this user
+                                </button>
+                        }
+                    </div>
                     <p>
                         {renderTimeAgo()}
                     </p>

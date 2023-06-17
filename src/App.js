@@ -8,7 +8,7 @@ import { UserProvider } from './contexts/userContext';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" id='App'>
       <UserProvider>
         <BrowserRouter>
           <Routes>
