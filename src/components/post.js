@@ -86,7 +86,7 @@ export default function Post({
                 <div
                     className="justify-content-space-between color-dark-gray"
                 >
-                    <div className="username">
+                    <div className="username min-width-fit-content">
                         <p>
                             @{post.username}
                         </p>
@@ -100,7 +100,7 @@ export default function Post({
                                 </button>
                         }
                     </div>
-                    <p>
+                    <p className="min-width-fit-content">
                         {renderTimeAgo()}
                     </p>
                 </div>

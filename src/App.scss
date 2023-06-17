@@ -162,6 +162,7 @@ main {
       padding: 24px;
     }
 
+
     > :last-child {
       border: 1px solid #999999;
       border-radius: 0px 0px 16px 16px;
@@ -216,6 +217,7 @@ header {
   position: fixed;
   top: 0;
   width: 800px;
+  z-index: 300;
 
   button {
     align-self: center;
@@ -369,20 +371,27 @@ form {
 
 .username {
   align-items: center;
-  align-items: center;
   display: flex;
+
+  width: 100%;
+
+  * {
+    max-width: 256px;
+  }
 
   button {
     align-items: center;
-    background: #fff;
+    background: none;
     box-shadow: none;
     color: #000;
     display: flex;
     font-size: 12px;
+    height: 100%;
     transition: all ease 0.2s;
     width: 100%;
 
     &:hover {
+      background: none;
       color: $red;
       top: 0;
     }
@@ -398,6 +407,10 @@ form {
 
 .tiny {
   font-size: 12px;
+}
+
+.min-width-fit-content {
+  min-width: fit-content;
 }
 
 @media (max-width:801px) {
